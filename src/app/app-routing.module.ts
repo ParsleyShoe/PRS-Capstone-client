@@ -37,27 +37,27 @@ const routes: Routes = [
 
   { path: "users/list", component: UserListComponent },
   { path: "users/detail/:id", component: UserDetailComponent },
-  { path: "users/edit", component: UserEditComponent },
+  { path: "users/edit/:id", component: UserEditComponent },
   { path: "users/create", component: UserCreateComponent },
 
   { path: "vendors/list", component: VendorListComponent },
   { path: "vendors/detail/:id", component: VendorDetailComponent },
-  { path: "vendors/edit", component: VendorEditComponent },
+  { path: "vendors/edit/:id", component: VendorEditComponent },
   { path: "vendors/create", component: VendorCreateComponent },
 
   { path: "products/list", component: ProductListComponent },
   { path: "products/detail/:id", component: ProductDetailComponent },
-  { path: "products/edit", component: ProductEditComponent },
+  { path: "products/edit/:id", component: ProductEditComponent },
   { path: "products/create", component: ProductCreateComponent },
 
   { path: "requests/list", component: RequestListComponent },
   { path: "requests/detail/:id", component: RequestDetailComponent },
-  { path: "requests/edit", component: RequestEditComponent },
+  { path: "requests/edit/:id", component: RequestEditComponent },
   { path: "requests/create", component: RequestCreateComponent },
 
   { path: "requestlines/list", component: RequestLineListComponent },
   { path: "requestlines/detail/:id", component: RequestLineDetailComponent },
-  { path: "requestlines/edit", component: RequestLineEditComponent },
+  { path: "requestlines/edit/:id", component: RequestLineEditComponent },
   { path: "requestlines/create", component: RequestLineCreateComponent },
 
   { path: "**", component: HomeComponent }

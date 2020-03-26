@@ -1,1 +1,39 @@
-<p>user-detail works!</p>
+<div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>Id</td>
+                <td>{{user.id}}</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>{{user.firstName}} {{user.lastName}}</td>
+            </tr>
+            <tr>
+                <td>Username</td>
+                <td>{{user.username}}</td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>{{user.phone}}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{user.email}}</td>
+            </tr>
+            <tr>
+                <td>Reviewer</td>
+                <td>{{user.isReviewer}}</td>
+            </tr>
+            <tr>
+                <td>Admin</td>
+                <td>{{user.isAdmin}}</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button (click)="delete()" class="btn btn-danger">Delete User</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
