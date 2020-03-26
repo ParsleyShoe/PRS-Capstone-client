@@ -1,7 +1,14 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "src",
+    "paths": {
+      "@user/": ["app/user/"],
+      "@product/": ["app/product/"],
+      "@request/": ["app/request/"],
+      "@request-line/": ["app/request-line/"],
+      "@vendor/": ["app/vendor/"]
+    },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
