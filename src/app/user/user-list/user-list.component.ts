@@ -11,6 +11,14 @@ export class UserListComponent implements OnInit {
 
   users:User[] = [];
   searchCriteria:string = "";
+  sortBy:string = "";
+  asc:boolean = true;
+
+  sort(sortParam:string):void {
+    if (this.sortBy != sortParam) this.asc = true;
+    else this.asc = this.asc ? false : true;
+    this.sortBy = sortParam;
+  };
 
   constructor(
     private usersvc:UserService

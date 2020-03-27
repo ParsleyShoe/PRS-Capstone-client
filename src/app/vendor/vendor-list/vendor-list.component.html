@@ -1,1 +1,34 @@
-<p>vendor-list works!</p>
+<div>
+    <table class="table">
+        <tr>
+            <td>
+                <a routerLink="/vendors/create" class="btn btn-primary">+ Add New Vendor</a>
+                <input [(ngModel)]="searchCriteria" type="text" placeholder="Search...">
+            </td>
+        </tr>
+    </table>
+    <table class="table">
+        <thead>
+            <th (click)="sort('id')">Id</th>
+            <th (click)="sort('code')">Code</th>
+            <th (click)="sort('name')">Name</th>
+            <th (click)="sort('address')">Address</th>
+            <th (click)="sort('phone')">Phone</th>
+            <th (click)="sort('email')">Email</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let v of vendors | vendorSearch:searchCriteria | sort:sortBy:asc">
+                <td>{{v.id}}</td>
+                <td>{{v.code}}</td>
+                <td>{{v.name}}</td>
+                <td>{{v.address}}, {{v.city}}, {{v.state}} {{v.zip}}</td>
+                <td>{{v.phone}}</td>
+                <td>{{v.email}}</td>
+                <td>
+                    <a routerLink="/vendors/detail/{{v.id}}">Detail</a> | 
+                    <a routerLink="/vendors/edit/{{v.id}}">Edit</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

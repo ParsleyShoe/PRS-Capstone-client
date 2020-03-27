@@ -23,14 +23,17 @@
             </tr>
             <tr>
                 <td>Reviewer</td>
-                <td>{{user.isReviewer}}</td>
+                <td *ngIf="user.isReviewer">Yes</td>
+                <td *ngIf="!user.isReviewer">No</td>
             </tr>
             <tr>
-                <td>Admin</td>
-                <td>{{user.isAdmin}}</td>
+                <td>Administrator</td>
+                <td *ngIf="user.isAdmin">Yes</td>
+                <td *ngIf="!user.isAdmin">No</td>
             </tr>
             <tr>
                 <td colspan="2">
+                    <button onclick="history.back(-1)" class="btn btn-secondary">Back</button>
                     <button (click)="delete()" class="btn btn-danger">Delete User</button>
                 </td>
             </tr>

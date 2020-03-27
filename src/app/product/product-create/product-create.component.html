@@ -1,1 +1,50 @@
-<p>product-create works!</p>
+<div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>Part Number</td>
+                <td>
+                    <input [(ngModel)]="product.partNumber" type="text" maxlength="30">
+                </td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input [(ngModel)]="product.name" type="text" maxlength="30">
+                </td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>
+                    <input [(ngModel)]="product.price" type="text">
+                </td>
+            </tr>
+            <tr>
+                <td>Unit</td>
+                <td>
+                    <input [(ngModel)]="product.unit" type="text" maxlength="30">
+                </td>
+            </tr>
+            <tr>
+                <td>Vendor</td>
+                <td>
+                    <select [(ngModel)]="product.vendorId">
+                        <option *ngFor="let v of vendors" value="{{v.id}}">{{v.name}}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Image URL (optional)</td>
+                <td>
+                    <input [(ngModel)]="product.photoPath" type="text" maxlength="255">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button onclick="history.back(-1)" class="btn btn-secondary">Back</button>
+                    <button (click)="save()" class="btn btn-primary">Save Changes</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

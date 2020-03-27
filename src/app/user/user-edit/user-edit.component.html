@@ -1,1 +1,65 @@
-<p>user-edit works!</p>
+<div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>First name</td>
+                <td>
+                    <input [(ngModel)]="user.firstName" type="text" maxlength="30">
+                </td>
+            </tr>
+            <tr>
+                <td>Last name</td>
+                <td>
+                    <input [(ngModel)]="user.lastName" type="text" maxlength="30">
+                </td>
+            </tr>
+            <tr>
+                <td>Username</td>
+                <td>{{user.username}}</td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td>
+                    <button *ngIf="user.password != password" (click)="resetPassword()" class="btn btn-danger">Reset Password</button>
+                    <button *ngIf="user.password == password" class="btn btn-secondary" disabled>Default Password</button>
+                </td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>
+                    <input [(ngModel)]="user.phone" type="text" maxlength="10">
+                </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>
+                    <input [(ngModel)]="user.email" type="text" maxlength="255">
+                </td>
+            </tr>
+            <tr>
+                <td>Make Reviewer?</td>
+                <td>
+                    <select [(ngModel)]="user.isReviewer">
+                        <option [ngValue]="false">No (default)</option>
+                        <option [ngValue]="true">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Make Administrator?</td>
+                <td>
+                    <select [(ngModel)]="user.isAdmin">
+                        <option [ngValue]="false">No (default)</option>
+                        <option [ngValue]="true">Yes</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button onclick="history.back(-1)" class="btn btn-secondary">Back</button>
+                    <button (click)="save()" class="btn btn-primary">Save Changes</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

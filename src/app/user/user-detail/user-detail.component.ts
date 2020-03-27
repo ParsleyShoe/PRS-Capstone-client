@@ -9,6 +9,7 @@ import { User } from '../user.class';
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
+  
   user:User = new User();
 
   delete():void {

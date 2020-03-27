@@ -1,1 +1,32 @@
-<p>request-create works!</p>
+<div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>Description</td>
+                <td>
+                    <input [(ngModel)]="request.description" type="text" maxlength="80">
+                </td>
+            </tr>
+            <tr>
+                <td>Justification</td>
+                <td>
+                    <input [(ngModel)]="request.justification" type="text" maxlength="80">
+                </td>
+            </tr>
+            <tr>
+                <td>Delivery Mode</td>
+                <td>
+                    <select [(ngModel)]="request.deliveryMode">
+                        <option [ngValue]>Pickup</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button onclick="history.back(-1)" class="btn btn-secondary">Back</button>
+                    <button (click)="save()" (keyup.enter)="save()" class="btn btn-primary">Save Changes</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

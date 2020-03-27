@@ -35,6 +35,10 @@ import { MenuItemComponent } from './menu/menu-item/menu-item.component';
 import { SortPipe } from './sort.pipe';
 import { HomeComponent } from './home/home/home.component';
 import { AboutComponent } from './home/about/about.component';
+import { LoginComponent } from './user/login/login.component';
+import { PasswordRecoverEmailComponent } from './user/password-recover-email/password-recover-email.component';
+import { PasswordRecoverPhoneComponent } from './user/password-recover-phone/password-recover-phone.component';
+import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +72,11 @@ import { AboutComponent } from './home/about/about.component';
     MenuItemComponent,
     SortPipe,
     HomeComponent,
-    AboutComponent
+    AboutComponent,
+    LoginComponent,
+    PasswordRecoverEmailComponent,
+    PasswordRecoverPhoneComponent,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

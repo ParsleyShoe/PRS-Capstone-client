@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { User } from '../user.class';
 
 @Component({
@@ -11,6 +11,7 @@ import { User } from '../user.class';
 export class UserCreateComponent implements OnInit {
 
   user:User = new User();
+  blankuser:User = new User();
 
   save():void {
     this.user.isReviewer = Boolean(this.user.isReviewer);
@@ -19,15 +20,19 @@ export class UserCreateComponent implements OnInit {
       () => {
         this.router.navigateByUrl("/users/list");
       },
-      err => {
-        console.error("Error creating user: ", err);
+      error => {
+        console.error("Error creating user: ", error);
       }
     );
   };
 
+  reset():void {
+    this.user = this.blankuser;
+    this.blankuser = new User();
+  }
+
   constructor(
     private usersvc:UserService,
-    private route:ActivatedRoute,
     private router:Router
   ) { }
 

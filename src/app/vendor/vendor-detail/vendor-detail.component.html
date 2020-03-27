@@ -1,1 +1,48 @@
-<p>vendor-detail works!</p>
+<div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>Id</td>
+                <td>{{vendor.id}}</td>
+            </tr>
+            <tr>
+                <td>Code</td>
+                <td>{{vendor.code}}</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>{{vendor.name}}</td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>{{vendor.address}}</td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td>{{vendor.city}}</td>
+            </tr>
+            <tr>
+                <td>State code</td>
+                <td>{{vendor.state}}</td>
+            </tr>
+            <tr>
+                <td>ZIP code</td>
+                <td>{{vendor.zip}}</td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>{{vendor.phone}}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{vendor.email}}</td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button onclick="history.back(-1)" class="btn btn-secondary">Back</button>
+                    <button (click)="delete()" class="btn btn-danger">Delete Vendor</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

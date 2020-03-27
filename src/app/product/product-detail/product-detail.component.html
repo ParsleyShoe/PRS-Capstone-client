@@ -1,1 +1,40 @@
-<p>product-detail works!</p>
+<div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>Id</td>
+                <td>{{product.id}}</td>
+            </tr>
+            <tr>
+                <td>Part Number</td>
+                <td>{{product.partNumber}}</td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>{{product.name}}</td>
+            </tr>
+            <tr>
+                <td>Price</td>
+                <td>{{product.price}}</td>
+            </tr>
+            <tr>
+                <td>Unit</td>
+                <td>{{product.unit}}</td>
+            </tr>
+            <tr *ngIf="product.vendor">
+                <td>Vendor</td>
+                <td>{{product.vendor.name}}</td>
+            </tr>
+            <tr *ngIf="product.photoPath">
+                <td>Image</td>
+                <td><img src="{{product.photoPath}}" alt=""></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button onclick="history.back(-1)" class="btn btn-secondary">Back</button>
+                    <button (click)="delete()" class="btn btn-danger">Delete Product</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

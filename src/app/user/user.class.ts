@@ -3,7 +3,7 @@ export class User {
     firstName:string;
     lastName:string;
     username:string;
-    password:string;
+    password:string = "#temp-password#";
     phone:string;
     email:string;
     isReviewer:boolean = false;

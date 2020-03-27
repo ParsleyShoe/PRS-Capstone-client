@@ -9,23 +9,25 @@
     </table>
     <table class="table">
         <thead>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Username</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Reviewer</th>
-            <th>Admin</th>
+            <th (click)="sort('id')">Id</th>
+            <th (click)="sort('firstName')">Name</th>
+            <th (click)="sort('username')">Username</th>
+            <th (click)="sort('phone')">Phone</th>
+            <th (click)="sort('email')">Email</th>
+            <th (click)="sort('isReviewer')">Reviewer</th>
+            <th (click)="sort('isAdmin')">Admin</th>
         </thead>
         <tbody>
-            <tr *ngFor="let u of users">
+            <tr *ngFor="let u of users | userSearch:searchCriteria | sort:sortBy:asc">
                 <td>{{u.id}}</td>
                 <td>{{u.firstName}} {{u.lastName}}</td>
                 <td>{{u.username}}</td>
                 <td>{{u.phone}}</td>
                 <td>{{u.email}}</td>
-                <td>{{u.isReviewer}}</td>
-                <td>{{u.isAdmin}}</td>
+                <td *ngIf="u.isReviewer">Yes</td>
+                <td *ngIf="!u.isReviewer">No</td>
+                <td *ngIf="u.isAdmin">Yes</td>
+                <td *ngIf="!u.isAdmin">No</td>
                 <td>
                     <a routerLink="/users/detail/{{u.id}}">Detail</a> | 
                     <a routerLink="/users/edit/{{u.id}}">Edit</a>

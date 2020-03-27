@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Vendor } from '../vendor.class';
+import { VendorService } from '../vendor.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-vendor-edit',
@@ -7,9 +10,35 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VendorEditComponent implements OnInit {
 
-  constructor() { }
+  vendor:Vendor = new Vendor();
+
+  save():void {
+    this.vendorsvc.change(this.vendor).subscribe(
+      () => {
+        this.router.navigateByUrl("/vendors/list");
+      },
+      error => {
+        console.error("Error updating vendor: ", error);
+      }
+    );
+  };
+
+  constructor(
+    private vendorsvc:VendorService,
+    private route:ActivatedRoute,
+    private router:Router
+  ) { }
 
   ngOnInit(): void {
+    let id = this.route.snapshot.params.id; //reads url and binds value of id
+    this.vendorsvc.get(id).subscribe(
+      result => {
+        this.vendor = result;
+      },
+      error => {
+        console.error("Error loading the vendor: ", error);
+      }
+    );
   }
 
 }

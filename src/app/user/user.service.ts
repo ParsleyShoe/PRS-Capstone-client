@@ -35,7 +35,22 @@ export class UserService {
       return `(${match[1]}) ${match[2]}-${match[3]}`;
     }
     return userPhone;
-  }
+  };
+
+  login(username:string, password:string):Observable<User> {
+    return this.http.get(`${url}/login/${username}/${password}`) as Observable<User>;
+  };
+  recoverPasswordEmail(username:string, email:string):Observable<boolean> {
+    return this.http.get(`${url}/recoverpassword_e/${username}/${email}`) as Observable<boolean>;
+  };
+  recoverPasswordPhone(username:string, phone:string):Observable<boolean> {
+    return this.http.get(`${url}/recoverpassword_e/${username}/${phone}`) as Observable<boolean>;
+  };
+  resetPassword(user:User, password:string):Observable<any> {
+    return this.http.get(`${url}/resetpassword/${password}`) as Observable<any>;
+  };
+
+
 
   constructor(
     private http:HttpClient

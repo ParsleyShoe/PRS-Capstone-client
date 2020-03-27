@@ -1,1 +1,60 @@
-<p>vendor-edit works!</p>
+<div>
+    <table class="table">
+        <tbody>
+            <tr>
+                <td>Code</td>
+                <td>
+                    <input [(ngModel)]="vendor.code" type="text" maxlength="30">
+                </td>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>
+                    <input [(ngModel)]="vendor.name" type="text" maxlength="30">
+                </td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td>
+                    <input [(ngModel)]="vendor.address" type="text" maxlength="30">
+                </td>
+            </tr>
+            <tr>
+                <td>City</td>
+                <td>
+                    <input [(ngModel)]="vendor.city" type="text" maxlength="30">
+                </td>
+            </tr>
+            <tr>
+                <td>State code</td>
+                <td>
+                    <input [(ngModel)]="vendor.state" type="text" maxlength="2">
+                </td>
+            </tr>
+            <tr>
+                <td>ZIP code</td>
+                <td>
+                    <input [(ngModel)]="vendor.zip" type="text" maxlength="5">
+                </td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>
+                    <input [(ngModel)]="vendor.phone" type="text" maxlength="10">
+                </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>
+                    <input [(ngModel)]="vendor.email" type="text" maxlength="255">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button onclick="history.back(-1)" class="btn btn-secondary">Back</button>
+                    <button (click)="save()" class="btn btn-primary">Save Changes</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

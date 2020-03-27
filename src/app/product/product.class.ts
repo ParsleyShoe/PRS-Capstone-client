@@ -4,8 +4,8 @@ export class Product {
     id:number = 0;
     partNumber:string;
     name:string;
-    price:string;
-    unit:string;
+    price:number;
+    unit:string = "Each";
     photoPath:string;
     vendorId:number;
     vendor:Vendor;
