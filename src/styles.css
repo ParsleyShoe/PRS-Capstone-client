@@ -1,6 +1,9 @@
 html, body {
     background-color: #b1b1b1;
 }
+html {
+    overflow-y: scroll;
+}
 
 .wrapper {
     display: flex;
@@ -8,3 +11,7 @@ html, body {
     justify-content: center;
     align-items: center;
 }
+
+/* input {
+    border-radius: 20px;
+} */

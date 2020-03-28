@@ -2,31 +2,31 @@
     <table class="table">
         <tbody>
             <tr>
-                <td>Id</td>
+                <th>Id</th>
                 <td>{{product.id}}</td>
             </tr>
             <tr>
-                <td>Part Number</td>
+                <th>Part Number</th>
                 <td>{{product.partNumber}}</td>
             </tr>
             <tr>
-                <td>Name</td>
+                <th>Name</th>
                 <td>{{product.name}}</td>
             </tr>
             <tr>
-                <td>Price</td>
+                <th>Price</th>
                 <td>{{product.price}}</td>
             </tr>
             <tr>
-                <td>Unit</td>
+                <th>Unit</th>
                 <td>{{product.unit}}</td>
             </tr>
             <tr *ngIf="product.vendor">
-                <td>Vendor</td>
+                <th>Vendor</th>
                 <td>{{product.vendor.name}}</td>
             </tr>
             <tr *ngIf="product.photoPath">
-                <td>Image</td>
+                <th>Image</th>
                 <td><img src="{{product.photoPath}}" alt=""></td>
             </tr>
             <tr>

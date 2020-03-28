@@ -9,13 +9,14 @@
     </table>
     <table class="table">
         <thead>
-            <th (click)="sort('id')">Id</th>
-            <th (click)="sort('firstName')">Name</th>
-            <th (click)="sort('username')">Username</th>
-            <th (click)="sort('phone')">Phone</th>
-            <th (click)="sort('email')">Email</th>
-            <th (click)="sort('isReviewer')">Reviewer</th>
-            <th (click)="sort('isAdmin')">Admin</th>
+            <th class="sticky-top" (click)="sort('id')">Id</th>
+            <th class="sticky-top" (click)="sort('firstName')">Name</th>
+            <th class="sticky-top" (click)="sort('username')">Username</th>
+            <th class="sticky-top" (click)="sort('phone')">Phone</th>
+            <th class="sticky-top" (click)="sort('email')">Email</th>
+            <th class="sticky-top" (click)="sort('isReviewer')">Reviewer</th>
+            <th class="sticky-top" (click)="sort('isAdmin')">Admin</th>
+            <th class="sticky-top"></th>
         </thead>
         <tbody>
             <tr *ngFor="let u of users | userSearch:searchCriteria | sort:sortBy:asc">

@@ -1,13 +1,5 @@
 <div>
     <table class="table">
-        <tr>
-            <td>
-                <a routerLink="/requests/create" class="btn btn-primary">+ Add New Request</a>
-                <input [(ngModel)]="searchCriteria" type="text" placeholder="Search...">
-            </td>
-        </tr>
-    </table>
-    <table class="table">
         <thead>
             <th (click)="sort('id')">Id</th>
             <th (click)="sort('description')">Description</th>
@@ -19,18 +11,16 @@
             <th></th>
         </thead>
         <tbody>
-            <tr *ngFor="let r of requests | requestSearch:searchCriteria | sort:sortBy:asc">
+            <tr *ngFor="let r of requests | sort:sortBy:asc">
                 <td>{{r.id}}</td>
                 <td title="{{r.description}}">{{r.description}}</td>
                 <td title="{{r.justification}}">{{r.justification}}</td>
                 <td>{{r.deliveryMode}}</td>
-                <td *ngIf="r.status != 'REJECTED'">{{r.status}}</td>
-                <td *ngIf="r.status == 'REJECTED'" title="{{r.rejectionReason}}" style="text-decoration: underline;">{{r.status}}</td>
+                <td>{{r.status}}</td>
                 <td>${{r.total}}</td>
                 <td>{{r.user.firstName}} {{r.user.lastName}}</td>
                 <td>
-                    <a routerLink="/requests/detail/{{r.id}}">Detail</a> | 
-                    <a routerLink="/requests/edit/{{r.id}}">Edit</a>
+                    <a routerLink="/requests/detail/{{r.id}}">Detail</a>
                 </td>
             </tr>
         </tbody>

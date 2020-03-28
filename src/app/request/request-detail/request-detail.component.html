@@ -1,1 +1,48 @@
-<p>request-detail works!</p>
+<div>
+    <table class="table">
+        <thead>
+            <th>Id</th>
+            <th>Description</th>
+            <th>Justification</th>
+            <th>Delivery Mode</th>
+            <th>Status</th>
+            <th>Total</th>
+            <th>User</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{request.id}}</td>
+                <td>{{request.description}}</td>
+                <td>{{request.justification}}</td>
+                <td>{{request.deliveryMode}}</td>
+                <td *ngIf="request.status != 'REJECTED'">{{request.status}}</td>
+                <td *ngIf="request.status == 'REJECTED'" title="{{request.rejectionReason}}" style="text-decoration: underline;">{{request.status}}</td>
+                <td>${{request.total}}</td>
+                <td *ngIf="request.user">{{request.user.firstName}} {{request.user.lastName}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table">
+        <thead>
+            <th (click)="sort('description')">Product</th>
+            <th (click)="sort('price')">Price</th>
+            <th (click)="sort('quantity')">Quantity</th>
+            <th>Line total</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let r of requestlines | sort:sortBy:asc">
+                <td *ngIf="r.product">{{r.product.name}}</td>
+                <td *ngIf="r.product">${{r.product.price}}</td>
+                <td>{{r.quantity}}</td>
+                <td>${{r.product.price * r.quantity}}</td>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <button onclick="history.back(-1)" class="btn btn-secondary">Back</button>
+                    <button (click)="delete()" class="btn btn-danger">Delete Request</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <!-- <app-request-line-list></app-request-line-list> -->
+</div>

@@ -1,6 +1,6 @@
 <div style="text-align: center;">
-    <nav class="menu">
-        <span *ngFor="let m of menus">
+    <nav class="menu nav" style="justify-content: center;">
+        <span *ngFor="let m of menus" class="nav-item">
             <app-menu-item [menu]="m"></app-menu-item>
         </span>
     </nav>

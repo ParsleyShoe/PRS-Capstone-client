@@ -39,6 +39,7 @@ import { LoginComponent } from './user/login/login.component';
 import { PasswordRecoverEmailComponent } from './user/password-recover-email/password-recover-email.component';
 import { PasswordRecoverPhoneComponent } from './user/password-recover-phone/password-recover-phone.component';
 import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
+import { RequestReviewComponent } from './request/request-review/request-review.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { ResetPasswordComponent } from './user/reset-password/reset-password.com
     LoginComponent,
     PasswordRecoverEmailComponent,
     PasswordRecoverPhoneComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    RequestReviewComponent
   ],
   imports: [
     BrowserModule,
