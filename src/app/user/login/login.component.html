@@ -1,1 +1,23 @@
-<p>login works!</p>
+<div>
+    <table class="table">
+        <tbody (keyup.enter)="login()">
+            <tr>
+                <th>Username</th>
+                <td>
+                    <input [(ngModel)]="username" type="text" maxlength="30">
+                </td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>
+                    <input [(ngModel)]="password" type="password" maxlength="30">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button class="btn btn-primary" (click)="login()">Login</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { VendorService } from '../vendor.service';
 import { Vendor } from '../vendor.class';
+import { SystemService } from 'app/system.service';
 
 @Component({
   selector: 'app-vendor-list',
@@ -21,13 +22,17 @@ export class VendorListComponent implements OnInit {
   };
 
   constructor(
-    private vendorsvc:VendorService
+    private vendorsvc:VendorService,
+    private syssvc:SystemService
   ) { }
 
   ngOnInit(): void {
     this.vendorsvc.list().subscribe(
       result => {
         this.vendors = result;
+        for (let v of this.vendors) {
+          v.phone = this.syssvc.formatPhoneNumber(v.phone);
+        }
       },
       error => {
         console.error("Error retrieving vendors: ", error);

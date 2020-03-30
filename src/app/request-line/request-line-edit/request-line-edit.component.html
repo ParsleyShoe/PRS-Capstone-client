@@ -1,1 +1,30 @@
-<p>request-line-edit works!</p>
+<div>
+    <table class="table">
+        <tbody (keyup.enter)="save()">
+            <tr>
+                <th>Product</th>
+                <td>
+                    <select [(ngModel)]="requestline.productId">
+                        <option *ngFor="let p of products" [(ngValue)]="p.id">{{p.name}} - {{p.unit}}</option>
+                    </select>
+                </td>
+            </tr>
+            <!-- <tr>
+                <th>Unit</th>
+                <td *ngIf="requestline.product">{{requestline.product.unit}}</td>
+            </tr> -->
+            <tr>
+                <th>Quantity</th>
+                <td>
+                    <input [(ngModel)]="requestline.quantity" type="number" step="1" min="1">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button onclick="history.back(-1)" class="btn btn-secondary">Back</button>
+                    <button (click)="save()" class="btn btn-primary">Save</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

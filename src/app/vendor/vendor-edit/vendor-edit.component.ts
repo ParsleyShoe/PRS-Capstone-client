@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Vendor } from '../vendor.class';
 import { VendorService } from '../vendor.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from 'app/system.service';
 
 @Component({
   selector: 'app-vendor-edit',
@@ -26,7 +27,8 @@ export class VendorEditComponent implements OnInit {
   constructor(
     private vendorsvc:VendorService,
     private route:ActivatedRoute,
-    private router:Router
+    private router:Router,
+    private syssvc:SystemService
   ) { }
 
   ngOnInit(): void {

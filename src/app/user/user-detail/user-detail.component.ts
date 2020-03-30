@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from '../user.class';
+import { SystemService } from 'app/system.service';
 
 @Component({
   selector: 'app-user-detail',
@@ -26,7 +27,8 @@ export class UserDetailComponent implements OnInit {
   constructor(
     private usersvc:UserService,
     private route:ActivatedRoute,
-    private router:Router
+    private router:Router,
+    private syssvc:SystemService
   ) { }
 
   ngOnInit(): void {
@@ -34,7 +36,7 @@ export class UserDetailComponent implements OnInit {
     this.usersvc.get(id).subscribe(
       result => {
         this.user = result;
-        this.user.phone = this.usersvc.formatPhoneNumber(this.user.phone);
+        this.user.phone = this.syssvc.formatPhoneNumber(this.user.phone);
       },
       error => {
         console.error("Error loading the user: ", error);

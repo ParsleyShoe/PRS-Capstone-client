@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Request } from '../request.class';
 import { RequestService } from '../request.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SystemService } from 'app/system.service';
+import { RequestLineService } from 'app/request-line/request-line.service';
 
 @Component({
   selector: 'app-request-edit',
@@ -24,10 +26,23 @@ export class RequestEditComponent implements OnInit {
     );
   };
 
+  delete(requestlineId:number):void {
+    this.requestlinesvc.remove(requestlineId).subscribe(
+      () => {
+        this.router.navigateByUrl(`/requests/edit/${this.request.id}`);
+      },
+      error => {
+        console.error("Error deleting request line: ", error);
+      }
+    );
+  };
+
   constructor(
     private requestsvc:RequestService,
     private route:ActivatedRoute,
     private router:Router,
+    private syssvc:SystemService,
+    private requestlinesvc:RequestLineService
   ) { }
 
   ngOnInit(): void {

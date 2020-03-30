@@ -9,9 +9,9 @@ export class Request {
     deliveryMode:string = "Pickup";
     status:string;
     total:number;
-    userId:number;
+    userId:number = 5; // REMOVE AFTER CREATING LOGIN
     user:User;
-    requestLines:RequestLine[];
+    requestlines:RequestLine[];
 
     constructor() {}
 }

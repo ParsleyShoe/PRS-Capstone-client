@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
 import { User } from '../user.class';
+import { SystemService } from 'app/system.service';
 
 @Component({
   selector: 'app-user-create',
@@ -33,7 +34,8 @@ export class UserCreateComponent implements OnInit {
 
   constructor(
     private usersvc:UserService,
-    private router:Router
+    private router:Router,
+    private syssvc:SystemService
   ) { }
 
   ngOnInit(): void {

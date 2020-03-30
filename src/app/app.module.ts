@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -24,9 +25,8 @@ import { RequestListComponent } from './request/request-list/request-list.compon
 import { RequestCreateComponent } from './request/request-create/request-create.component';
 import { RequestEditComponent } from './request/request-edit/request-edit.component';
 import { RequestDetailComponent } from './request/request-detail/request-detail.component';
+import { RequestReviewComponent } from './request/request-review/request-review.component';
 import { RequestSearchPipe } from './request/request-search.pipe';
-import { RequestLineListComponent } from './request-line/request-line-list/request-line-list.component';
-import { RequestLineDetailComponent } from './request-line/request-line-detail/request-line-detail.component';
 import { RequestLineCreateComponent } from './request-line/request-line-create/request-line-create.component';
 import { RequestLineEditComponent } from './request-line/request-line-edit/request-line-edit.component';
 import { RequestLineSearchPipe } from './request-line/request-line-search.pipe';
@@ -39,7 +39,6 @@ import { LoginComponent } from './user/login/login.component';
 import { PasswordRecoverEmailComponent } from './user/password-recover-email/password-recover-email.component';
 import { PasswordRecoverPhoneComponent } from './user/password-recover-phone/password-recover-phone.component';
 import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
-import { RequestReviewComponent } from './request/request-review/request-review.component';
 
 @NgModule({
   declarations: [
@@ -64,11 +63,10 @@ import { RequestReviewComponent } from './request/request-review/request-review.
     RequestEditComponent,
     RequestDetailComponent,
     RequestSearchPipe,
-    RequestLineListComponent,
-    RequestLineDetailComponent,
     RequestLineCreateComponent,
     RequestLineEditComponent,
     RequestLineSearchPipe,
+    RequestReviewComponent,
     MenuComponent,
     MenuItemComponent,
     SortPipe,
@@ -77,11 +75,11 @@ import { RequestReviewComponent } from './request/request-review/request-review.
     LoginComponent,
     PasswordRecoverEmailComponent,
     PasswordRecoverPhoneComponent,
-    ResetPasswordComponent,
-    RequestReviewComponent
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule

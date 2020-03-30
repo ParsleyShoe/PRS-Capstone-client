@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { User } from '../user.class';
+import { SystemService } from 'app/system.service';
 
 @Component({
   selector: 'app-user-edit',
@@ -36,7 +37,8 @@ export class UserEditComponent implements OnInit {
   constructor(
     private usersvc:UserService,
     private router:Router,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private syssvc:SystemService
   ) { }
 
   ngOnInit(): void {

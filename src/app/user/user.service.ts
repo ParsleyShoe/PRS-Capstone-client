@@ -25,17 +25,6 @@ export class UserService {
   remove(user:User):Observable<any> {
     return this.http.delete(`${url}/${user.id}`) as Observable<any>;
   };
-  formatPhoneNumber(userPhone:string):string {
-    if (userPhone == null || userPhone.length < 10) {
-      return userPhone;
-    }
-    var cleaned = ("" + userPhone).replace(/\D/g, "");
-    var match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
-    if (match) {
-      return `(${match[1]}) ${match[2]}-${match[3]}`;
-    }
-    return userPhone;
-  };
 
   login(username:string, password:string):Observable<User> {
     return this.http.get(`${url}/login/${username}/${password}`) as Observable<User>;

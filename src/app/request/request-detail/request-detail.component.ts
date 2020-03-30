@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RequestService } from '../request.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Request } from '../request.class';
-import { RequestLine } from 'app/request-line/request-line.class';
-import { RequestLineService } from 'app/request-line/request-line.service';
+import { SystemService } from 'app/system.service';
 
 @Component({
   selector: 'app-request-detail',
@@ -13,7 +12,6 @@ import { RequestLineService } from 'app/request-line/request-line.service';
 export class RequestDetailComponent implements OnInit {
 
   request:Request = new Request();
-  requestlines:RequestLine[] = [];
 
   delete():void {
     this.requestsvc.remove(this.request).subscribe(
@@ -30,7 +28,7 @@ export class RequestDetailComponent implements OnInit {
     private requestsvc:RequestService,
     private route:ActivatedRoute,
     private router:Router,
-    private requestlinesvc:RequestLineService
+    private syssvc:SystemService
   ) { }
 
   ngOnInit(): void {
@@ -38,21 +36,6 @@ export class RequestDetailComponent implements OnInit {
     this.requestsvc.get(id).subscribe(
       result => {
         this.request = result;
-      },
-      error => {
-        console.error("Error loading the request: ", error);
-      }
-    );
-    this.requestlinesvc.list().subscribe(
-      result => {
-        let requestlines:RequestLine[] = [];
-        for (let r of result) {
-          if (r.requestId != this.request.id) {
-            continue;
-          }
-          requestlines.push(r);
-        }
-        this.requestlines = requestlines;
       },
       error => {
         console.error("Error loading the request: ", error);

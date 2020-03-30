@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Request } from '../request.class';
 import { RequestService } from '../request.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { SystemService } from 'app/system.service';
 
 @Component({
   selector: 'app-request-create',
@@ -14,8 +15,9 @@ export class RequestCreateComponent implements OnInit {
 
   save():void {
     this.requestsvc.create(this.request).subscribe(
-      () => {
-        this.router.navigateByUrl("/requests/list");
+      result => {
+        this.request = result;
+        this.router.navigateByUrl(`/requestlines/create/${this.request.id}`);
       },
       error => {
         console.error("Error creating request: ", error);
@@ -25,10 +27,13 @@ export class RequestCreateComponent implements OnInit {
 
   constructor(
     private requestsvc:RequestService,
-    private router:Router
+    private router:Router,
+    private syssvc:SystemService,
+    private route:ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.request.userId = Number(this.route.snapshot.params.userid);
   }
 
 }

@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../product.class';
 import { Vendor } from 'app/vendor/vendor.class';
 import { VendorService } from 'app/vendor/vendor.service';
+import { SystemService } from 'app/system.service';
 
 @Component({
   selector: 'app-product-edit',
@@ -32,7 +33,8 @@ export class ProductEditComponent implements OnInit {
     private productsvc:ProductService,
     private route:ActivatedRoute,
     private router:Router,
-    private vendorsvc:VendorService
+    private vendorsvc:VendorService,
+    private syssvc:SystemService
   ) { }
 
   ngOnInit(): void {

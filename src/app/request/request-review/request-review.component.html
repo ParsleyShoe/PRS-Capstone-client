@@ -17,7 +17,7 @@
                 <td title="{{r.justification}}">{{r.justification}}</td>
                 <td>{{r.deliveryMode}}</td>
                 <td>{{r.status}}</td>
-                <td>${{r.total}}</td>
+                <td>{{r.total | currency}}</td>
                 <td>{{r.user.firstName}} {{r.user.lastName}}</td>
                 <td>
                     <a routerLink="/requests/detail/{{r.id}}">Detail</a>

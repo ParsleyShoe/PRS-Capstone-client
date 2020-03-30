@@ -4,6 +4,7 @@ import { ProductService } from '../product.service';
 import { Router } from '@angular/router';
 import { Vendor } from 'app/vendor/vendor.class';
 import { VendorService } from 'app/vendor/vendor.service';
+import { SystemService } from 'app/system.service';
 
 @Component({
   selector: 'app-product-create',
@@ -37,7 +38,8 @@ export class ProductCreateComponent implements OnInit {
   constructor(
     private productsvc:ProductService,
     private router:Router,
-    private vendorsvc:VendorService
+    private vendorsvc:VendorService,
+    private syssvc:SystemService
   ) { }
 
   ngOnInit(): void {

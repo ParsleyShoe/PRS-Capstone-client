@@ -2,7 +2,7 @@
     <table class="table">
         <tr>
             <td>
-                <a routerLink="/requests/create" class="btn btn-primary">+ Add New Request</a>
+                <a *ngIf="syssvc.loggedInUser != null" routerLink="/requests/create/{{syssvc.loggedInUser.id}}" class="btn btn-primary">+ Add New Request</a>
                 <input [(ngModel)]="searchCriteria" type="text" placeholder="Search...">
             </td>
         </tr>
@@ -26,7 +26,7 @@
                 <td>{{r.deliveryMode}}</td>
                 <td *ngIf="r.status != 'REJECTED'">{{r.status}}</td>
                 <td *ngIf="r.status == 'REJECTED'" title="{{r.rejectionReason}}" style="text-decoration: underline;">{{r.status}}</td>
-                <td>${{r.total}}</td>
+                <td>{{r.total | currency}}</td>
                 <td>{{r.user.firstName}} {{r.user.lastName}}</td>
                 <td>
                     <a routerLink="/requests/detail/{{r.id}}">Detail</a> | 

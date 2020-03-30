@@ -5,7 +5,7 @@ export class RequestLine {
     id:number = 0;
     productId:number;
     requestId:number;
-    quantity:number;
+    quantity:number = 1;
     product:Product;
     request:Request;
 

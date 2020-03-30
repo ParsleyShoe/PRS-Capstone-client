@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { RequestService } from '../request.service';
 import { User } from 'app/user/user.class';
 import { ActivatedRoute } from '@angular/router';
+import { SystemService } from 'app/system.service';
+import { Request } from '../request.class';
 
 @Component({
   selector: 'app-request-review',
@@ -23,7 +25,8 @@ export class RequestReviewComponent implements OnInit {
 
   constructor(
     private requestsvc:RequestService,
-    private route:ActivatedRoute
+    private route:ActivatedRoute,
+    private syssvc:SystemService
   ) { }
 
   ngOnInit(): void {

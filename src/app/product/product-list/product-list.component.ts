@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../product.class';
 import { ProductService } from '../product.service';
+import { SystemService } from 'app/system.service';
 
 @Component({
   selector: 'app-product-list',
@@ -21,7 +22,8 @@ export class ProductListComponent implements OnInit {
   };
 
   constructor(
-    private productsvc:ProductService
+    private productsvc:ProductService,
+    private syssvc:SystemService
   ) { }
 
   ngOnInit(): void {

@@ -10,9 +10,7 @@ const url2:string = "http://localhost:55555/api/requestlines"; // use this when 
   providedIn: 'root'
 })
 export class RequestLineService {
-  list():Observable<RequestLine[]> {
-    return this.http.get(`${url}`) as Observable<RequestLine[]>;
-  };
+
   get(id:any):Observable<RequestLine> {
     return this.http.get(`${url}/${id}`) as Observable<RequestLine>;
   };
@@ -22,8 +20,8 @@ export class RequestLineService {
   change(requestline:RequestLine):Observable<any> {
     return this.http.put(`${url}/${requestline.id}`, requestline) as Observable<any>;
   };
-  remove(requestline:RequestLine):Observable<any> {
-    return this.http.delete(`${url}/${requestline.id}`) as Observable<any>;
+  remove(requestlineId:number):Observable<any> {
+    return this.http.delete(`${url}/${requestlineId}`) as Observable<any>;
   };
 
   constructor(

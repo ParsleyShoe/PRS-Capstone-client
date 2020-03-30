@@ -1,7 +1,14 @@
 <div style="text-align: center;">
     <nav class="menu nav" style="justify-content: center;">
-        <span *ngFor="let m of menus" class="nav-item">
+        <a class="nav-item nav-link" routerLink="" title="PRS home page">Home</a>
+        <a class="nav-item nav-link" routerLink="/about" title="About PRS">About</a>
+        <span *ngFor="let m of menus">
             <app-menu-item [menu]="m"></app-menu-item>
+        </span>
+        <a *ngIf="syssvc.loggedInUser == null" routerLink="/login" class="nav-item nav-link">Login</a>
+        <span *ngIf="syssvc.loggedInUser != null" class="nav-item">
+            <a routerLink="" (click)="syssvc.logout()" class="nav-item nav-link">Logout</a>
+            <p>Logged in as {{syssvc.loggedInUser.firstName}}</p> 
         </span>
     </nav>
 </div>

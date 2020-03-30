@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user.class';
+import { SystemService } from 'app/system.service';
 
 @Component({
   selector: 'app-user-list',
@@ -21,7 +22,8 @@ export class UserListComponent implements OnInit {
   };
 
   constructor(
-    private usersvc:UserService
+    private usersvc:UserService,
+    private syssvc:SystemService
   ) { }
 
   ngOnInit(): void {
@@ -29,7 +31,7 @@ export class UserListComponent implements OnInit {
       result => {
         this.users = result;
         for (let u of this.users) {
-          u.phone = this.usersvc.formatPhoneNumber(u.phone);
+          u.phone = this.syssvc.formatPhoneNumber(u.phone);
         }
       },
       error => {

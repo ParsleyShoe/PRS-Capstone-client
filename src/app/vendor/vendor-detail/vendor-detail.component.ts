@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { VendorService } from '../vendor.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Vendor } from '../vendor.class';
+import { SystemService } from 'app/system.service';
 
 @Component({
   selector: 'app-vendor-detail',
@@ -26,7 +27,8 @@ export class VendorDetailComponent implements OnInit {
   constructor(
     private vendorsvc:VendorService,
     private route:ActivatedRoute,
-    private router:Router
+    private router:Router,
+    private syssvc:SystemService
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +36,7 @@ export class VendorDetailComponent implements OnInit {
     this.vendorsvc.get(id).subscribe(
       result => {
         this.vendor = result;
+        this.vendor.phone = this.syssvc.formatPhoneNumber(this.vendor.phone);
       },
       error => {
         console.error("Error loading the vendor: ", error);

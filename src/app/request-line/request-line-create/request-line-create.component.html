@@ -1,1 +1,26 @@
-<p>request-line-create works!</p>
+<div>
+    <table class="table">
+        <tbody (keyup.enter)="save()">
+            <tr>
+                <td>Product - Id: {{requestline.productId}}</td>
+                <td>
+                    <select [(ngModel)]="requestline.productId">
+                        <option *ngFor="let p of products" [ngValue]="p.id">{{p.name}}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Quantity</td>
+                <td>
+                    <input [(ngModel)]="requestline.quantity" type="number" step="1" min="1">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button onclick="history.back(-1)" class="btn btn-secondary">Back</button>
+                    <button (click)="save()" class="btn btn-primary">Add Product</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
