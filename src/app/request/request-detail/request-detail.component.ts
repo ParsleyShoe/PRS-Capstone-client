@@ -24,6 +24,17 @@ export class RequestDetailComponent implements OnInit {
     );
   };
 
+  review():void {
+    this.requestsvc.review(this.request).subscribe(
+      () => {
+        this.router.navigateByUrl("/requests/list");
+      },
+      error => {
+        console.error("Error deleting request: ", error);
+      }
+    );
+  };
+
   constructor(
     private requestsvc:RequestService,
     private route:ActivatedRoute,

@@ -19,7 +19,8 @@ export class UserCreateComponent implements OnInit {
     this.user.isAdmin = Boolean(this.user.isAdmin);
     this.usersvc.create(this.user).subscribe(
       () => {
-        this.router.navigateByUrl("/users/list");
+        if (this.syssvc.loggedInUser.id == 0) this.router.navigateByUrl("/login");
+        else this.router.navigateByUrl("/users/list");
       },
       error => {
         console.error("Error creating user: ", error);
@@ -35,7 +36,7 @@ export class UserCreateComponent implements OnInit {
   constructor(
     private usersvc:UserService,
     private router:Router,
-    private syssvc:SystemService
+    public syssvc:SystemService
   ) { }
 
   ngOnInit(): void {

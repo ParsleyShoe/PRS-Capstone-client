@@ -25,6 +25,7 @@ import { RequestListComponent } from './request/request-list/request-list.compon
 import { RequestCreateComponent } from './request/request-create/request-create.component';
 import { RequestEditComponent } from './request/request-edit/request-edit.component';
 import { RequestDetailComponent } from './request/request-detail/request-detail.component';
+import { RequestReviewListComponent } from './request/request-review-list/request-review-list.component';
 import { RequestReviewComponent } from './request/request-review/request-review.component';
 import { RequestSearchPipe } from './request/request-search.pipe';
 import { RequestLineCreateComponent } from './request-line/request-line-create/request-line-create.component';
@@ -39,6 +40,7 @@ import { LoginComponent } from './user/login/login.component';
 import { PasswordRecoverEmailComponent } from './user/password-recover-email/password-recover-email.component';
 import { PasswordRecoverPhoneComponent } from './user/password-recover-phone/password-recover-phone.component';
 import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
+import { BoolToYesNoPipe } from './user/bool-to-yes-no.pipe';
 
 @NgModule({
   declarations: [
@@ -66,6 +68,7 @@ import { ResetPasswordComponent } from './user/reset-password/reset-password.com
     RequestLineCreateComponent,
     RequestLineEditComponent,
     RequestLineSearchPipe,
+    RequestReviewListComponent,
     RequestReviewComponent,
     MenuComponent,
     MenuItemComponent,
@@ -75,7 +78,8 @@ import { ResetPasswordComponent } from './user/reset-password/reset-password.com
     LoginComponent,
     PasswordRecoverEmailComponent,
     PasswordRecoverPhoneComponent,
-    ResetPasswordComponent
+    ResetPasswordComponent,
+    BoolToYesNoPipe
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,9 @@
+.table td, .table th, .sticky-top, .table thead th {
+    border-width: 0 !important;
+}
+
 html, body {
-    background-color: #b1b1b1;
+    background-color: #dedede;
 }
 html {
     overflow-y: scroll;
@@ -11,7 +15,25 @@ html {
     justify-content: center;
     align-items: center;
 }
+input, select {
+    height: 2.5rem;
+    width: 200px;
+    padding: 0 0.75rem;
+}
+.admin-img {
+    width: 16px;
+    height: 16px;
+}
 
-/* input {
-    border-radius: 20px;
-} */
+td, th, tr {
+    vertical-align: middle !important;
+}
+thead, .table thead th {
+    background-color: #cccccc !important;
+}
+#search {
+    width: 250px;
+}
+.headright tbody tr th {
+    text-align: right;
+}

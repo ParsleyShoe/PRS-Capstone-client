@@ -1,23 +1,24 @@
-<div>
-    <table class="table">
-        <tbody (keyup.enter)="login()">
-            <tr>
-                <th>Username</th>
-                <td>
-                    <input [(ngModel)]="username" type="text" maxlength="30">
-                </td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td>
-                    <input [(ngModel)]="password" type="password" maxlength="30">
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <button class="btn btn-primary" (click)="login()">Login</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div class="wrapper" style="height: calc(100vh - 40px);">
+    <div>
+        <table class="table headright">
+            <tbody (keyup.enter)="login()">
+                <tr>
+                    <th>Username</th>
+                    <td>
+                        <input [(ngModel)]="username" type="text" maxlength="30">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <td>
+                        <input [(ngModel)]="password" type="password" maxlength="30">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="p-3 mt-2">
+        <button routerLink="/users/create" class="btn btn-success mr-5">Create New User</button>
+        <button class="btn btn-primary" (click)="login()">Login</button>
+    </div>
 </div>

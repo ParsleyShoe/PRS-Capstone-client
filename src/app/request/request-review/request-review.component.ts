@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { RequestService } from '../request.service';
-import { User } from 'app/user/user.class';
-import { ActivatedRoute } from '@angular/router';
-import { SystemService } from 'app/system.service';
 import { Request } from '../request.class';
+import { RequestService } from '../request.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-request-review',
@@ -12,32 +10,52 @@ import { Request } from '../request.class';
 })
 export class RequestReviewComponent implements OnInit {
   
-  requests:Request[] = [];
-  sortBy:string = "";
-  asc:boolean = true;
-  user:User = new User();
+  request:Request = new Request();
+  isRejected:boolean = false;
 
-  sort(sortParam:string):void {
-    if (this.sortBy != sortParam) this.asc = true;
-    else this.asc = this.asc ? false : true;
-    this.sortBy = sortParam;
+  approve():void {
+    this.requestsvc.approve(this.request).subscribe(
+      () => {
+        this.router.navigateByUrl("/requests/review/list");
+      },
+      error => {
+        console.error("Error approving request: ", error);
+      }
+    );
+  };
+
+  reject():void {
+    if (!this.request.rejectionReason) {
+      this.isRejected = true;
+    }
+    else {
+      this.requestsvc.reject(this.request).subscribe(
+        () => {
+          this.router.navigateByUrl("/requests/review/list");
+        },
+        error => {
+          console.error("Error rejecting request: ", error);
+        }
+      );
+    }
   };
 
   constructor(
     private requestsvc:RequestService,
     private route:ActivatedRoute,
-    private syssvc:SystemService
+    private router:Router
   ) { }
 
   ngOnInit(): void {
     let id = this.route.snapshot.params.id; //reads url and binds value of id
-    this.requestsvc.reviewlist(id).subscribe(
+    this.requestsvc.get(id).subscribe(
       result => {
-        this.requests = result;
+        this.request = result;
       },
       error => {
-        console.error("Error retrieving requests: ", error);
+        console.error("Error loading the request: ", error);
       }
     );
   }
+
 }

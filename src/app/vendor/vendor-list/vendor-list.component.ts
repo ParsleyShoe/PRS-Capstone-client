@@ -23,7 +23,7 @@ export class VendorListComponent implements OnInit {
 
   constructor(
     private vendorsvc:VendorService,
-    private syssvc:SystemService
+    public syssvc:SystemService
   ) { }
 
   ngOnInit(): void {

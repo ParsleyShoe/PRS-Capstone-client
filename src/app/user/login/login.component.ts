@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private usersvc:UserService,
-    private syssvc:SystemService,
+    public syssvc:SystemService,
     private router:Router
   ) { }
 

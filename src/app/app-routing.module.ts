@@ -24,6 +24,7 @@ import { RequestListComponent } from './request/request-list/request-list.compon
 import { RequestDetailComponent } from './request/request-detail/request-detail.component';
 import { RequestEditComponent } from './request/request-edit/request-edit.component';
 import { RequestCreateComponent } from './request/request-create/request-create.component';
+import { RequestReviewListComponent } from './request/request-review-list/request-review-list.component';
 import { RequestReviewComponent } from './request/request-review/request-review.component';
 
 import { RequestLineEditComponent } from './request-line/request-line-edit/request-line-edit.component';
@@ -54,7 +55,8 @@ const routes: Routes = [
   { path: "requests/list", component: RequestListComponent },
   { path: "requests/detail/:id", component: RequestDetailComponent },
   { path: "requests/edit/:id", component: RequestEditComponent },
-  { path: "requests/create/:userid", component: RequestCreateComponent },
+  { path: "requests/create", component: RequestCreateComponent },
+  { path: "requests/review/list", component: RequestReviewListComponent },
   { path: "requests/review/:id", component: RequestReviewComponent },
 
   { path: "requestlines/edit/:id", component: RequestLineEditComponent },

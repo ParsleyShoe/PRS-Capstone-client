@@ -1,14 +1,11 @@
-<div style="text-align: center;">
-    <nav class="menu nav" style="justify-content: center;">
-        <a class="nav-item nav-link" routerLink="" title="PRS home page">Home</a>
-        <a class="nav-item nav-link" routerLink="/about" title="About PRS">About</a>
-        <span *ngFor="let m of menus">
-            <app-menu-item [menu]="m"></app-menu-item>
+<div class="d-flex flex-row justify-content-center align-items-center">
+        <a routerLink="" class="nav-link" title="PRS home page">Home</a>
+        <a routerLink="/about" class="nav-link" title="About PRS">About</a>
+        <span *ngIf="syssvc.loggedInUser.id != 0" class="d-flex flex-row">
+            <a *ngFor="let m of menus" class="nav-link" routerLink="{{m.route}}" title="{{m.tooltip}}">{{m.display}}</a>
+            <a *ngIf="syssvc.loggedInUser.isReviewer" routerLink="/requests/review/list" title="List of requests you can review" class="nav-link">Review</a>
         </span>
-        <a *ngIf="syssvc.loggedInUser == null" routerLink="/login" class="nav-item nav-link">Login</a>
-        <span *ngIf="syssvc.loggedInUser != null" class="nav-item">
-            <a routerLink="" (click)="syssvc.logout()" class="nav-item nav-link">Logout</a>
-            <p>Logged in as {{syssvc.loggedInUser.firstName}}</p> 
-        </span>
-    </nav>
+        <a *ngIf="syssvc.loggedInUser.id == 0" routerLink="/login" class="nav-link">Login</a>
+        <span *ngIf="syssvc.loggedInUser.id != 0" class="nav-link" style="margin-left: 80px;">Hello, {{syssvc.loggedInUser.firstName}}</span>
+        <a *ngIf="syssvc.loggedInUser.id != 0" routerLink="" (click)="syssvc.logout()" class="nav-link">Logout</a>
 </div>

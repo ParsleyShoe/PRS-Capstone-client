@@ -1,39 +1,33 @@
-<div>
-    <table class="table">
-        <tr>
-            <td>
-                <a routerLink="/users/create" class="btn btn-primary">+ Add New User</a>
-                <input [(ngModel)]="searchCriteria" type="text" placeholder="Search...">
-            </td>
-        </tr>
-    </table>
-    <table class="table">
-        <thead>
-            <th class="sticky-top" (click)="sort('id')">Id</th>
-            <th class="sticky-top" (click)="sort('firstName')">Name</th>
-            <th class="sticky-top" (click)="sort('username')">Username</th>
-            <th class="sticky-top" (click)="sort('phone')">Phone</th>
-            <th class="sticky-top" (click)="sort('email')">Email</th>
-            <th class="sticky-top" (click)="sort('isReviewer')">Reviewer</th>
-            <th class="sticky-top" (click)="sort('isAdmin')">Admin</th>
-            <th class="sticky-top"></th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let u of users | userSearch:searchCriteria | sort:sortBy:asc">
-                <td>{{u.id}}</td>
-                <td>{{u.firstName}} {{u.lastName}}</td>
-                <td>{{u.username}}</td>
-                <td>{{u.phone}}</td>
-                <td>{{u.email}}</td>
-                <td *ngIf="u.isReviewer">Yes</td>
-                <td *ngIf="!u.isReviewer">No</td>
-                <td *ngIf="u.isAdmin">Yes</td>
-                <td *ngIf="!u.isAdmin">No</td>
-                <td>
-                    <a routerLink="/users/detail/{{u.id}}">Detail</a> | 
-                    <a routerLink="/users/edit/{{u.id}}">Edit</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div class="wrapper">
+    <div class="p-3">
+        <a  *ngIf="syssvc.loggedInUser.isAdmin"routerLink="/users/create" class="btn btn-primary mr-5">+ Add New User</a>
+        <input [(ngModel)]="searchCriteria" type="text" placeholder="Search...">
+    </div>
+    <div>
+        <table class="table">
+            <thead>
+                <th class="sticky-top" *ngIf="syssvc.loggedInUser.isAdmin" (click)="sort('id')">Id</th>
+                <th class="sticky-top" (click)="sort('firstName')">Name</th>
+                <th class="sticky-top" *ngIf="syssvc.loggedInUser.isAdmin"  (click)="sort('username')">Username</th>
+                <th class="sticky-top" (click)="sort('phone')">Phone</th>
+                <th class="sticky-top" (click)="sort('email')">Email</th>
+                <th class="sticky-top" (click)="sort('isReviewer')" style="text-align: center;">Reviewer</th>
+                <th class="sticky-top" *ngIf="syssvc.loggedInUser.isAdmin"></th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let u of users | userSearch:searchCriteria | sort:sortBy:asc">
+                    <td *ngIf="syssvc.loggedInUser.isAdmin">{{u.id}}</td>
+                    <td>{{u.firstName}} {{u.lastName}} <img *ngIf="u.isAdmin" class="admin-img" src="assets/img/shield.ico" title="admin"/></td>
+                    <td *ngIf="syssvc.loggedInUser.isAdmin" >{{u.username}}</td>
+                    <td>{{u.phone}}</td>
+                    <td>{{u.email}}</td>
+                    <td style="text-align: center;">{{u.isReviewer | boolToYesNo}}</td>
+                    <td *ngIf="syssvc.loggedInUser.isAdmin">
+                        <a routerLink="/users/detail/{{u.id}}">Detail</a> | 
+                        <a routerLink="/users/edit/{{u.id}}">Edit</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>

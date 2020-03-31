@@ -14,6 +14,7 @@ export class RequestCreateComponent implements OnInit {
   request:Request = new Request();
 
   save():void {
+    this.request.userId = this.syssvc.loggedInUser.id
     this.requestsvc.create(this.request).subscribe(
       result => {
         this.request = result;
@@ -33,7 +34,7 @@ export class RequestCreateComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.request.userId = Number(this.route.snapshot.params.userid);
+    //this.request.userId = Number(this.route.snapshot.params.userid);
   }
 
 }

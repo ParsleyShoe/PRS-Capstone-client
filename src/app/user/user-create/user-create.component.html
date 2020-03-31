@@ -1,67 +1,67 @@
-<div>
-    <table class="table">
-        <tbody (keyup.enter)="save()">
-            <tr>
-                <td>First name</td>
-                <td>
-                    <input [(ngModel)]="user.firstName" type="text" maxlength="30">
-                </td>
-            </tr>
-            <tr>
-                <td>Last name</td>
-                <td>
-                    <input [(ngModel)]="user.lastName" type="text" maxlength="30">
-                </td>
-            </tr>
-            <tr>
-                <td>Username</td>
-                <td>
-                    <input [(ngModel)]="user.username" type="text" maxlength="30">
-                </td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td>
-                    <input [(ngModel)]="user.password" type="text" maxlength="30">
-                </td>
-            </tr>
-            <tr>
-                <td>Phone (optional)</td>
-                <td>
-                    <input [(ngModel)]="user.phone" type="text" maxlength="10">
-                </td>
-            </tr>
-            <tr>
-                <td>Email (optional)</td>
-                <td>
-                    <input [(ngModel)]="user.email" type="text" maxlength="255">
-                </td>
-            </tr>
-            <tr>
-                <td>Make Reviewer?</td>
-                <td>
-                    <select [(ngModel)]="user.isReviewer">
-                        <option [ngValue]="false">No (default)</option>
-                        <option [ngValue]="true">Yes</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td>Make Administrator?</td>
-                <td>
-                    <select [(ngModel)]="user.isAdmin">
-                        <option [ngValue]="false">No (default)</option>
-                        <option [ngValue]="true">Yes</option>
-                    </select>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <button onclick="history.back(-1)" class="btn btn-secondary">Cancel</button>
-                    <button (click)="save()" class="btn btn-primary">Create User</button>
-                    <a class="btn btn-link" (click)="reset()">Reset to default values</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div class="wrapper">
+    <div class="mt-3">
+        <table class="table headright">
+            <tbody (keyup.enter)="save()">
+                <tr>
+                    <th>First name</th>
+                    <td>
+                        <input [(ngModel)]="user.firstName" type="text" maxlength="30">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Last name</th>
+                    <td>
+                        <input [(ngModel)]="user.lastName" type="text" maxlength="30">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Username</th>
+                    <td>
+                        <input [(ngModel)]="user.username" type="text" maxlength="30">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Password</th>
+                    <td>
+                        <input [(ngModel)]="user.password" type="password" maxlength="30">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Phone (optional)</th>
+                    <td>
+                        <input [(ngModel)]="user.phone" type="text" maxlength="10">
+                    </td>
+                </tr>
+                <tr>
+                    <th>Email (optional)</th>
+                    <td>
+                        <input [(ngModel)]="user.email" type="text" maxlength="255">
+                    </td>
+                </tr>
+                <tr *ngIf="syssvc.loggedInUser.isAdmin">
+                    <th>Make Reviewer?</th>
+                    <td>
+                        <select [(ngModel)]="user.isReviewer">
+                            <option [ngValue]="false">No (default)</option>
+                            <option [ngValue]="true">Yes</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr *ngIf="syssvc.loggedInUser.isAdmin">
+                    <th>Make Administrator?</th>
+                    <td>
+                        <select [(ngModel)]="user.isAdmin">
+                            <option [ngValue]="false">No (default)</option>
+                            <option [ngValue]="true">Yes</option>
+                        </select>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="text-center p-3">
+        <button onclick="history.back(-1)" class="btn btn-secondary mr-4">Cancel</button>
+        <button (click)="save()" class="btn btn-primary">Create User</button>
+        <a class="btn btn-link" (click)="reset()">Reset to default values</a>
+    </div>
 </div>

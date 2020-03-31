@@ -7,10 +7,10 @@ import { Router } from '@angular/router';
 })
 export class SystemService {
 
-  loggedInUser:User = null;
+  loggedInUser:User = new User();
 
   logout():void {
-    this.loggedInUser = null;
+    this.loggedInUser = new User();
     this.router.navigateByUrl("/login");
   }
 

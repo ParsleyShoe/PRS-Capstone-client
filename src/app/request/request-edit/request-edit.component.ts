@@ -29,13 +29,25 @@ export class RequestEditComponent implements OnInit {
   delete(requestlineId:number):void {
     this.requestlinesvc.remove(requestlineId).subscribe(
       () => {
-        this.router.navigateByUrl(`/requests/edit/${this.request.id}`);
+        this.refresh();
+        //this.router.navigateByUrl(`/requests/edit/${this.request.id}`);
       },
       error => {
         console.error("Error deleting request line: ", error);
       }
     );
   };
+
+  refresh():void {
+    this.requestsvc.get(this.request.id).subscribe(
+      result => {
+        this.request = result;
+      },
+      error => {
+        console.error("Error loading the request: ", error);
+      }
+    );
+  }
 
   constructor(
     private requestsvc:RequestService,
@@ -46,15 +58,8 @@ export class RequestEditComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    let id = this.route.snapshot.params.id; //reads url and binds value of id
-    this.requestsvc.get(id).subscribe(
-      result => {
-        this.request = result;
-      },
-      error => {
-        console.error("Error loading the request: ", error);
-      }
-    );
+    this.request.id = this.route.snapshot.params.id;
+    this.refresh();
   }
 
 }

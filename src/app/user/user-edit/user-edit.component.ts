@@ -19,8 +19,8 @@ export class UserEditComponent implements OnInit {
     this.user.isAdmin = Boolean(this.user.isAdmin);
     this.usersvc.change(this.user).subscribe(
       () => {
-        console.log("User updated.");
-        console.log(this.user);
+        //console.log("User updated.");
+        //console.log(this.user);
         this.router.navigateByUrl("/users/list");
       },
       error => {
@@ -38,7 +38,7 @@ export class UserEditComponent implements OnInit {
     private usersvc:UserService,
     private router:Router,
     private route:ActivatedRoute,
-    private syssvc:SystemService
+    public syssvc:SystemService
   ) { }
 
   ngOnInit(): void {

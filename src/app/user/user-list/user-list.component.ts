@@ -23,7 +23,7 @@ export class UserListComponent implements OnInit {
 
   constructor(
     private usersvc:UserService,
-    private syssvc:SystemService
+    public syssvc:SystemService
   ) { }
 
   ngOnInit(): void {

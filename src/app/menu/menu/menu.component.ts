@@ -10,13 +10,12 @@ import { SystemService } from 'app/system.service';
 export class MenuComponent implements OnInit {
 
   menus:Menu[] = [
-    //new Menu("Home", "", "PRS home page"),
-    //new Menu("About", "/about", "About PRS"),
+    // new Menu("Home", "", "PRS home page"),
+    // new Menu("About", "/about", "About PRS"),
     new Menu("Users", "/users/list", "List of all users"),
     new Menu("Vendors", "/vendors/list", "List of all vendors"),
     new Menu("Products", "/products/list", "List of all products"),
-    new Menu("Requests", "/requests/list", "List of all requests"),
-    new Menu("Review", "/requests/review/1", "List of requests you can review")
+    new Menu("Requests", "/requests/list", "List of all requests")
   ];
 
   constructor(

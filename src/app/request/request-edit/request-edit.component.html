@@ -23,7 +23,7 @@
                 </td>
                 <td *ngIf="request.status != 'REJECTED'">{{request.status}}</td>
                 <td *ngIf="request.status == 'REJECTED'" title="{{request.rejectionReason}}" style="text-decoration: underline;">{{request.status}}</td>
-                <td>${{request.total}}</td>
+                <td>{{request.total | currency}}</td>
                 <td *ngIf="request.user">{{request.user.firstName}} {{request.user.lastName}}</td>
             </tr>
         </tbody>
@@ -35,7 +35,7 @@
             <th>Price</th>
             <th>Quantity</th>
             <th>Line total</th>
-            <th>Actions</th>
+            <th></th>
         </thead>
         <tbody>
             <tr *ngFor="let r of request.requestlines">
@@ -50,7 +50,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="5">
+                <td colspan="6">
                     <a routerLink="/requests/list" class="btn btn-secondary">Back</a>
                     <a routerLink="/requestlines/create/{{request.id}}" class="btn btn-primary">+ Add An Item</a>
                     <button (click)="save()" class="btn btn-primary">Save Changes</button>

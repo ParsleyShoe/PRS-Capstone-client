@@ -1,10 +1,6 @@
 <div class="wrapper">
-    <div class="p-3">
-        <a routerLink="/requests/create" class="btn btn-primary mr-5">+ Add New Request</a>
-        <input [(ngModel)]="searchCriteria" type="text" placeholder="Search...">
-    </div>
     <div>
-        <table class="table">
+        <table class="table" *ngIf="orders" style="margin-top: 3rem;">
             <thead>
                 <!-- <th (click)="sort('id')">Id</th> -->
                 <th (click)="sort('description')">Description</th>
@@ -13,26 +9,23 @@
                 <th (click)="sort('status')">Status</th>
                 <th (click)="sort('total')">Total</th>
                 <th (click)="sort('userId')">User</th>
-                <!-- <th *ngIf="syssvc.loggedInUser.isAdmin"></th> -->
                 <th></th>
             </thead>
             <tbody>
-                <tr *ngFor="let r of requests | requestSearch:searchCriteria | sort:sortBy:asc">
+                <tr *ngFor="let r of requests | sort:sortBy:asc">
                     <!-- <td>{{r.id}}</td> -->
                     <td title="{{r.description}}">{{r.description}}</td>
                     <td title="{{r.justification}}">{{r.justification}}</td>
                     <td>{{r.deliveryMode}}</td>
-                    <td *ngIf="r.status != 'REJECTED'">{{r.status}}</td>
-                    <td *ngIf="r.status == 'REJECTED'" title="{{r.rejectionReason}}" style="text-decoration: underline;">{{r.status}}</td>
+                    <td>{{r.status}}</td>
                     <td>{{r.total | currency}}</td>
                     <td>{{r.user.firstName}} {{r.user.lastName}}</td>
-                    <!-- <td *ngIf="syssvc.loggedInUser.isAdmin"> -->
                     <td>
-                        <a routerLink="/requests/detail/{{r.id}}">Detail</a> | 
-                        <a routerLink="/requests/edit/{{r.id}}">Edit</a>
+                        <a routerLink="/requests/review/{{r.id}}">Review</a>
                     </td>
                 </tr>
             </tbody>
         </table>
+        <h5 [hidden]="orders" style="margin-top: 3rem;">There are no orders you can review.</h5>
     </div>
 </div>
