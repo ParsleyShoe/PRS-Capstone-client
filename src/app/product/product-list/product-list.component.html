@@ -1,30 +1,26 @@
 <div class="wrapper">
     <div class="p-3">
-        <a routerLink="/products/create" class="btn btn-primary mr-5">+ Add New Product</a>
+        <a *ngIf="syssvc.loggedInUser.isAdmin" routerLink="/products/create" class="btn btn-primary mr-5">+ Add New Product</a>
         <input [(ngModel)]="searchCriteria" type="text" placeholder="Search...">
     </div>
     <div>
         <table class="table">
             <thead>
-                <!-- <th (click)="sort('id')">Id</th> -->
                 <th (click)="sort('partNumber')">Part Number</th>
                 <th (click)="sort('name')">Name</th>
                 <th (click)="sort('price')">Price</th>
                 <th (click)="sort('unit')">Unit</th>
                 <th (click)="sort('vendorId')">Vendor</th>
-                <!-- <th *ngIf="syssvc.loggedInUser.isAdmin"></th> -->
-                <th></th>
+                <th *ngIf="syssvc.loggedInUser.isAdmin"></th>
             </thead>
             <tbody>
                 <tr *ngFor="let p of products | productSearch:searchCriteria | sort:sortBy:asc">
-                    <!-- <td>{{p.id}}</td> -->
                     <td>{{p.partNumber}}</td>
                     <td>{{p.name}}</td>
                     <td>${{p.price}}</td>
                     <td>{{p.unit}}</td>
                     <td>{{p.vendor.name}}</td>
-                    <!-- <td *ngIf="syssvc.loggedInUser.isAdmin"> -->
-                    <td>
+                    <td *ngIf="syssvc.loggedInUser.isAdmin">
                         <a routerLink="/products/detail/{{p.id}}">Detail</a> | 
                         <a routerLink="/products/edit/{{p.id}}">Edit</a>
                     </td>

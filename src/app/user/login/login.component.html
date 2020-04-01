@@ -1,18 +1,22 @@
 <div class="wrapper" style="height: calc(100vh - 40px);">
-    <div>
+    <div class="text-center p-3" style="outline: #ccc solid 1px;">
+        <h2 class="mb-3">PRS Login</h2>
         <table class="table headright">
             <tbody (keyup.enter)="login()">
                 <tr>
-                    <th>Username</th>
-                    <td>
+                    <th class="pb-2">Username</th>
+                    <td class="pb-2">
                         <input [(ngModel)]="username" type="text" maxlength="30">
                     </td>
                 </tr>
                 <tr>
-                    <th>Password</th>
-                    <td>
+                    <th class="pt-2">Password</th>
+                    <td class="pt-2">
                         <input [(ngModel)]="password" type="password" maxlength="30">
                     </td>
+                </tr>
+                <tr *ngIf="message">
+                    <td colspan="2" style="color: red;">{{message}}</td>
                 </tr>
             </tbody>
         </table>

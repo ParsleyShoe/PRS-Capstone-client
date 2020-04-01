@@ -12,13 +12,17 @@ export class LoginComponent implements OnInit {
 
   username:string = "";
   password:string = "";
+  message:string = "";
 
   login():void {
     this.usersvc.login(this.username, this.password).subscribe(
       result => {
         this.syssvc.loggedInUser = result;
-        //console.log("User logged in.", result);
-        this.router.navigateByUrl("/requests/list");
+        if (this.syssvc.loggedInUser == null) {
+          this.message = "Username or password incorrect.";
+          this.syssvc.logout();
+        }
+        else this.router.navigateByUrl("/requests/list");
       },
       error => {
         console.error("Error logging in!", error);

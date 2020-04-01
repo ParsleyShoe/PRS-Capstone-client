@@ -3,7 +3,7 @@
 }
 
 html, body {
-    background-color: #dedede;
+    background-color: #f1f1f1;
 }
 html {
     overflow-y: scroll;
@@ -29,11 +29,14 @@ td, th, tr {
     vertical-align: middle !important;
 }
 thead, .table thead th {
-    background-color: #cccccc !important;
+    background-color: #dedede !important;
 }
 #search {
     width: 250px;
 }
 .headright tbody tr th {
     text-align: right;
+}
+.top-menu {
+    background-color: #fafafa;
 }

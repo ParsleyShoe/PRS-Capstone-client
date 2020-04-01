@@ -1,61 +1,71 @@
-<div>
-    <table class="table">
-        <thead>
-            <th>Description</th>
-            <th>Justification</th>
-            <th>Delivery Mode</th>
-            <th>Status</th>
-            <th>Total</th>
-            <th>User</th>
-        </thead>
-        <tbody>
-            <tr>
-                <td>
-                    <input [(ngModel)]="request.description" type="text">
-                </td>
-                <td>
-                    <input [(ngModel)]="request.justification" type="text">
-                </td>
-                <td>
-                    <select [(ngModel)]="request.deliveryMode">
-                        <option [ngValue]>Pickup</option>
-                    </select>
-                </td>
-                <td *ngIf="request.status != 'REJECTED'">{{request.status}}</td>
-                <td *ngIf="request.status == 'REJECTED'" title="{{request.rejectionReason}}" style="text-decoration: underline;">{{request.status}}</td>
-                <td>{{request.total | currency}}</td>
-                <td *ngIf="request.user">{{request.user.firstName}} {{request.user.lastName}}</td>
-            </tr>
-        </tbody>
-    </table>
-    <table class="table">
-        <thead>
-            <th>Product</th>
-            <th>Vendor</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Line total</th>
-            <th></th>
-        </thead>
-        <tbody>
-            <tr *ngFor="let r of request.requestlines">
-                <td *ngIf="r.product">{{r.product.name}}</td>
-                <td *ngIf="r.product">{{r.product.vendor.name}}</td>
-                <td *ngIf="r.product">{{r.product.price | currency}}</td>
-                <td>{{r.quantity}}</td>
-                <td>{{r.product.price * r.quantity | currency}}</td>
-                <td>
-                    <a routerLink="" (click)="delete(r.id)">Delete</a> | 
-                    <a routerLink="/requestlines/edit/{{r.id}}">Edit</a>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="6">
-                    <a routerLink="/requests/list" class="btn btn-secondary">Back</a>
-                    <a routerLink="/requestlines/create/{{request.id}}" class="btn btn-primary">+ Add An Item</a>
-                    <button (click)="save()" class="btn btn-primary">Save Changes</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+<div class="wrapper">
+    <div class="mt-5">
+        <table class="table">
+            <thead>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Justification</th>
+                <th>Delivery Mode</th>
+                <th>Status</th>
+                <th>Total</th>
+                <th>User</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{request.id}}</td>
+                    <td>
+                        <input [(ngModel)]="request.description" type="text" maxlength="80">
+                    </td>
+                    <td>
+                        <input [(ngModel)]="request.justification" type="text" maxlength="80">
+                    </td>
+                    <td>
+                        <select [(ngModel)]="request.deliveryMode">
+                            <option [ngValue]>Pickup</option>
+                            <option [ngValue]>Cubicle drop-off</option>
+                        </select>
+                    </td>
+                    <td *ngIf="request.status != 'REJECTED'">{{request.status}}</td>
+                    <td *ngIf="request.status == 'REJECTED'" title="{{request.rejectionReason}}" style="text-decoration: underline;">{{request.status}}</td>
+                    <td>{{request.total | currency}}</td>
+                    <td *ngIf="request.user">{{request.user.firstName}} {{request.user.lastName}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table">
+            <thead>
+                <th>Product</th>
+                <th>Vendor</th>
+                <th>Unit</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Line total</th>
+                <th></th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let r of request.requestlines">
+                    <td *ngIf="r.product">{{r.product.name}}</td>
+                    <td *ngIf="r.product">{{r.product.vendor.name}}</td>
+                    <td *ngIf="r.product">{{r.product.unit}}</td>
+                    <td *ngIf="r.product">{{r.product.price | currency}}</td>
+                    <td>{{r.quantity}}</td>
+                    <td>{{r.product.price * r.quantity | currency}}</td>
+                    <td>
+                        <a routerLink="" (click)="delete(r.id)">Delete</a> | 
+                        <a routerLink="/requestlines/edit/{{r.id}}">Edit</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="6">
+
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="text-center p-3">
+            <a routerLink="/requests/list" class="btn btn-secondary mr-4">Back</a>
+            <a routerLink="/requestlines/create/{{request.id}}" class="btn btn-primary mr-4">+ Add An Item</a>
+            <button (click)="save()" class="btn btn-primary">Save Changes</button>
+        </div>
+    </div>
 </div>

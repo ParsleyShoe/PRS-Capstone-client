@@ -2,6 +2,7 @@
     <div class="mt-5">
         <table class="table">
             <thead>
+                <th>Id</th>
                 <th>Description</th>
                 <th>Justification</th>
                 <th>Delivery Mode</th>
@@ -11,6 +12,7 @@
             </thead>
             <tbody>
                 <tr>
+                    <td>{{request.id}}</td>
                     <td>{{request.description}}</td>
                     <td>{{request.justification}}</td>
                     <td>{{request.deliveryMode}}</td>
@@ -25,6 +27,7 @@
             <thead>
                 <th>Product</th>
                 <th>Vendor</th>
+                <th>Unit</th>
                 <th>Price</th>
                 <th>Quantity</th>
                 <th>Line total</th>
@@ -33,6 +36,7 @@
                 <tr *ngFor="let r of request.requestlines">
                     <td *ngIf="r.product">{{r.product.name}}</td>
                     <td *ngIf="r.product">{{r.product.vendor.name}}</td>
+                    <td *ngIf="r.product">{{r.product.unit}}</td>
                     <td *ngIf="r.product">{{r.product.price | currency}}</td>
                     <td>{{r.quantity}}</td>
                     <td>{{r.product.price * r.quantity | currency}}</td>

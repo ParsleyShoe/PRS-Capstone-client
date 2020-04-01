@@ -23,7 +23,7 @@ export class ProductListComponent implements OnInit {
 
   constructor(
     private productsvc:ProductService,
-    private syssvc:SystemService
+    public syssvc:SystemService
   ) { }
 
   ngOnInit(): void {

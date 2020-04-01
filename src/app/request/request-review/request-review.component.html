@@ -44,10 +44,10 @@
             <button (click)="approve()" class="btn btn-success mr-4">Approve</button>
             <button (click)="reject()" class="btn btn-danger">Reject</button>
             <br />
-            <!-- <input *ngIf="isRejected" [(ngModel)]="request.rejectionReason" type="text" placeholder="Why are you rejecting this order?"> -->
             <textarea *ngIf="isRejected" [(ngModel)]="request.rejectionReason"
-            placeholder="Why are you rejecting this order?"
-            style="resize: none; margin-top: 1.5rem; width: 70%; height: 3rem;"></textarea>
+                      placeholder="Why are you rejecting this order?"
+                      style="resize: none; margin-top: 1.5rem; width: 60%; height: 3rem;"
+                ></textarea>
         </div>
     </div>
 </div>

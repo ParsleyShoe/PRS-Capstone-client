@@ -1,4 +1,51 @@
-<div class="wrapper" style="height: calc(100vh - 40px);">
-    <h2>ABOUT</h2>
-    <p>This is the about page.</p>
+<div class="wrapper"><!--style="height: calc(100vh - 40px);"> -->
+    <div class="mt-5 mb-5 p-5" style="width: 55vw; outline: #ccc solid 1px;">
+
+        <h1>ABOUT</h1>
+        <br />
+        <br />
+
+        <h3>Overview</h3>
+        <p>Purchase Request System is a full-stack, three-tier system that is architected as a typical business web application which will utilize virtually all of the technology covered int the .NET Boot Camp.</p>
+        
+        <p>Students must complete the capstone and receive a minimum certified score of 85% in order to graduate.</p>
+        
+        <p>The application is created in two projects called the Server (back-end) and the Client (front-end). The server is created using Visual Studio 2019, C#, EntityFrameworkCore, WebAPI, and SQL Server. The client is created using Angular and Typescript.</p> 
+        <br />
+        <br />
+        
+        <h3>Functionality</h3>
+        <p>The PRS is an application that would provide a company the ability for employees to request office materials that they need, and then get that order approved so that all items on the approved request can be purchased from the vendors that provide them.</p>
+        <br />
+        
+        <h4>Users</h4>
+        <p>It starts with users of the system. Each user must be known to the system and must log in with a username and password. The user also has a name, phone (optional), and email (optional). Users may or may not have the privelege of a Reviewer and/or Admin. These are needed to perform some functions.</p>
+        <br />
+        
+        <h4>Vendors</h4>
+        <p>Vendors are those companies that products are purchased from. Vendors are used little in the PRS system.</p>
+        <br />
+        
+        <h4>Products</h4>
+        <p>Products are the items that users can add to their requests. They are attached to a vendor so the organization knows where the product can be purchased. When added to a request, the quantity of products being request must be provided. There is no reason for entering a quantity of less than 1. The price is required for the product. There is a unit that declares how the product is sold. Most products are priced for Each one but some bundles are priced for a particular quantity like 10 note pads.</p>
+        <br />
+        
+        <h4>Requests</h4>
+        <p>Once logged in, the user can create a new purchase request and include a description of what it is and a justification of what it is for. There is a delivery mode which is how the user will receive the items on the request.</p>
+        
+        <p>Important on the request is the Status and Total. These two fields are maintained by the system and cannot be changed by the user.</p>
+        
+        <h6>Status</h6>
+        <p>The status on the request determines the state the request is in. When created, the request is in NEW status. It stays in that status until the user is done adding products. The user must have the request reviewed which sets the status to APPROVED if the total of all the lines is less than or equal to $50. This is a business rule of the organization. If the total is greater than $50, the status is set to REVIEW.</p>
+        
+        <p>Once in review status, a Reviewer will either approve or reject the request. If approved, the status is set to APPROVED. If rejected, the status is set to REJECTED and a rejection reason is provided by the Reviewer in details of the request. This message tells the user why it was not approved. A rejected request can be changed and reviewed an unlimited number of times.</p>
+        
+        <h6>Total</h6>
+        <p>The total is the sum of all the products on the request. It is calculated by multiplying the quantity times the price for each line and adding them all up. The total is stored in the request itself so the recalculation doesn't have to be done every time the request is displayed. The recalculation is done when any line on the request is inserted, updated, or deleted.</p>
+        <br />
+        
+        <h4>Request lines</h4>
+        <p>The request lines are attached to a request and include a product and a quantity. The product includes the price.</p>
+        
+    </div>
 </div>
