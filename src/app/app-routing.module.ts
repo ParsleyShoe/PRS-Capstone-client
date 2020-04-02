@@ -14,6 +14,7 @@ import { VendorListComponent } from './vendor/vendor-list/vendor-list.component'
 import { VendorDetailComponent } from './vendor/vendor-detail/vendor-detail.component';
 import { VendorEditComponent } from './vendor/vendor-edit/vendor-edit.component';
 import { VendorCreateComponent } from './vendor/vendor-create/vendor-create.component';
+import { VendorPoComponent } from './vendor/vendor-po/vendor-po.component';
 
 import { ProductListComponent } from './product/product-list/product-list.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
@@ -29,6 +30,8 @@ import { RequestReviewComponent } from './request/request-review/request-review.
 
 import { RequestLineEditComponent } from './request-line/request-line-edit/request-line-edit.component';
 import { RequestLineCreateComponent } from './request-line/request-line-create/request-line-create.component';
+import { PasswordRecoverEmailComponent } from './user/password-recover-email/password-recover-email.component';
+import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
 
 
 const routes: Routes = [
@@ -41,11 +44,14 @@ const routes: Routes = [
   { path: "users/edit/:id", component: UserEditComponent },
   { path: "users/create", component: UserCreateComponent },
   { path: "login", component: LoginComponent },
+  { path: "login/forgotpassword", component: PasswordRecoverEmailComponent },
+  { path: "resetpassword/:id", component: ResetPasswordComponent },
 
   { path: "vendors/list", component: VendorListComponent },
   { path: "vendors/detail/:id", component: VendorDetailComponent },
   { path: "vendors/edit/:id", component: VendorEditComponent },
   { path: "vendors/create", component: VendorCreateComponent },
+  { path: "vendors/po/:id", component: VendorPoComponent },
 
   { path: "products/list", component: ProductListComponent },
   { path: "products/detail/:id", component: ProductDetailComponent },

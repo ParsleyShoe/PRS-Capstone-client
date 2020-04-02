@@ -39,7 +39,7 @@ export class RequestDetailComponent implements OnInit {
     private requestsvc:RequestService,
     private route:ActivatedRoute,
     private router:Router,
-    private syssvc:SystemService
+    public syssvc:SystemService
   ) { }
 
   ngOnInit(): void {

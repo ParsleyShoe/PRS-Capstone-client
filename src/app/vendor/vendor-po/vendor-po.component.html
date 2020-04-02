@@ -1,6 +1,6 @@
 <div class="wrapper">
     <div class="mt-5">
-        <table class="table">
+        <!-- <table class="table">
             <thead>
                 <th>Id</th>
                 <th>Description</th>
@@ -16,38 +16,38 @@
                     <td>{{request.description}}</td>
                     <td>{{request.justification}}</td>
                     <td>{{request.deliveryMode}}</td>
-                    <td *ngIf="request.status != 'REJECTED' && request.status != 'APPROVED'">{{request.status}}</td>
-                    <td *ngIf="request.status != 'REJECTED' && request.status == 'APPROVED'" style="color: green;">{{request.status}}</td>
-                    <td *ngIf="request.status == 'REJECTED'" title="{{request.rejectionReason}}" style="text-decoration: underline; color: red;">{{request.status}}</td>
+                    <td *ngIf="request.status != 'REJECTED'">{{request.status}}</td>
+                    <td *ngIf="request.status == 'REJECTED'" title="{{request.rejectionReason}}" style="text-decoration: underline;">{{request.status}}</td>
                     <td>{{request.total | currency}}</td>
                     <td *ngIf="request.user">{{request.user.firstName}} {{request.user.lastName}}</td>
                 </tr>
             </tbody>
-        </table>
-        <table class="table">
+        </table> -->
+        <h2 style="text-align: center;">PO for {{vendorName}}</h2>
+        <table class="table mt-5">
             <thead>
                 <th>Product</th>
-                <th>Vendor</th>
                 <th>Unit</th>
-                <th>Price</th>
+                <th>Price (30% off)</th>
                 <th>Quantity</th>
                 <th>Line total</th>
             </thead>
             <tbody>
-                <tr *ngFor="let r of request.requestlines">
+                <tr *ngFor="let r of requestLines">
                     <td *ngIf="r.product">{{r.product.name}}</td>
-                    <td *ngIf="r.product">{{r.product.vendor.name}}</td>
                     <td *ngIf="r.product">{{r.product.unit}}</td>
-                    <td *ngIf="r.product">{{r.product.price | currency}}</td>
+                    <td *ngIf="r.product"><span style="text-decoration-line: line-through; color: red;">{{r.product.price | currency}}</span> {{(r.product.price * 0.7) | currency}}</td>
                     <td>{{r.quantity}}</td>
-                    <td>{{r.product.price * r.quantity | currency}}</td>
+                    <td>{{(r.product.price * 0.7) * r.quantity | currency}}</td>
+                </tr>
+                <tr style="border-top: #afafaf solid 1px;">
+                    <td colspan="4" style="text-align: right; font-weight: bold;">Grand total: </td>
+                    <td>{{grandTotal | currency}}</td>
                 </tr>
             </tbody>
         </table>
         <div class="p-3 text-center">
             <button onclick="history.back(-1)" class="btn btn-secondary mr-4">Back</button>
-            <button (click)="delete()" class="btn btn-danger mr-4">Delete Request</button>
-            <button *ngIf="(request.status == 'NEW' || request.status == 'REJECTED') && syssvc.loggedInUser.id == request.userId" (click)="review()" class="btn btn-primary">Ready for Review</button>
         </div>
     </div>
 </div>

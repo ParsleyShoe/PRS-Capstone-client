@@ -29,14 +29,14 @@ export class UserService {
   login(username:string, password:string):Observable<User> {
     return this.http.get(`${url}/login/${username}/${password}`) as Observable<User>;
   };
-  recoverPasswordEmail(username:string, email:string):Observable<boolean> {
-    return this.http.get(`${url}/recoverpassword_e/${username}/${email}`) as Observable<boolean>;
+  recoverPasswordEmail(username:string, email:string):Observable<User> {
+    return this.http.get(`${url}/recoverpassword_e/${username}/${email}`) as Observable<User>;
   };
   recoverPasswordPhone(username:string, phone:string):Observable<boolean> {
     return this.http.get(`${url}/recoverpassword_e/${username}/${phone}`) as Observable<boolean>;
   };
-  resetPassword(user:User, password:string):Observable<any> {
-    return this.http.get(`${url}/resetpassword/${password}`) as Observable<any>;
+  resetPassword(password:string, user:User):Observable<any> {
+    return this.http.put(`${url}/resetpassword/${password}`, user) as Observable<any>;
   };
 
 

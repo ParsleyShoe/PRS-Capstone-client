@@ -12,15 +12,13 @@ import { SystemService } from 'app/system.service';
 export class UserEditComponent implements OnInit {
 
   user:User = new User();
-  password:string = "#temp-password#";
+  password:string = "temp-password";
 
   save():void {
     this.user.isReviewer = Boolean(this.user.isReviewer);
     this.user.isAdmin = Boolean(this.user.isAdmin);
     this.usersvc.change(this.user).subscribe(
       () => {
-        //console.log("User updated.");
-        //console.log(this.user);
         this.router.navigateByUrl("/users/list");
       },
       error => {
@@ -31,7 +29,6 @@ export class UserEditComponent implements OnInit {
 
   resetPassword():void {
     this.user.password = this.password;
-    console.log(this.user);
   }
 
   constructor(

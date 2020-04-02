@@ -26,7 +26,7 @@
                         </select>
                     </td>
                     <td *ngIf="request.status != 'REJECTED'">{{request.status}}</td>
-                    <td *ngIf="request.status == 'REJECTED'" title="{{request.rejectionReason}}" style="text-decoration: underline;">{{request.status}}</td>
+                    <td *ngIf="request.status == 'REJECTED'" title="{{request.rejectionReason}}" style="text-decoration: underline; color: red;">{{request.status}}</td>
                     <td>{{request.total | currency}}</td>
                     <td *ngIf="request.user">{{request.user.firstName}} {{request.user.lastName}}</td>
                 </tr>

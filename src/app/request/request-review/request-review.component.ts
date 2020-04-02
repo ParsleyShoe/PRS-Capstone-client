@@ -51,6 +51,7 @@ export class RequestReviewComponent implements OnInit {
     this.requestsvc.get(id).subscribe(
       result => {
         this.request = result;
+        this.request.rejectionReason = "";
       },
       error => {
         console.error("Error loading the request: ", error);

@@ -6,7 +6,7 @@
                 <tr>
                     <th class="pb-2">Username</th>
                     <td class="pb-2">
-                        <input [(ngModel)]="username" type="text" maxlength="30">
+                        <input [(ngModel)]="username" type="text" maxlength="32">
                     </td>
                 </tr>
                 <tr>
@@ -16,7 +16,13 @@
                     </td>
                 </tr>
                 <tr *ngIf="message">
-                    <td colspan="2" style="color: red;">{{message}}</td>
+                    <td colspan="2">
+                        <span style="color: red;">{{message}}</span>
+                        <br />
+                        <span>
+                            <a routerLink="/login/forgotpassword">Forgot your password?</a>
+                        </span>
+                    </td>
                 </tr>
             </tbody>
         </table>

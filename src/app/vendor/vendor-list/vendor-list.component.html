@@ -22,7 +22,8 @@
                     <td>{{v.email}}</td>
                     <td *ngIf="syssvc.loggedInUser.isAdmin">
                         <a routerLink="/vendors/detail/{{v.id}}">Detail</a> | 
-                        <a routerLink="/vendors/edit/{{v.id}}">Edit</a>
+                        <a routerLink="/vendors/edit/{{v.id}}">Edit</a> | 
+                        <a routerLink="/vendors/po/{{v.id}}">PO</a>
                     </td>
                 </tr>
             </tbody>

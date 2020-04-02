@@ -41,6 +41,7 @@ import { PasswordRecoverEmailComponent } from './user/password-recover-email/pas
 import { PasswordRecoverPhoneComponent } from './user/password-recover-phone/password-recover-phone.component';
 import { ResetPasswordComponent } from './user/reset-password/reset-password.component';
 import { BoolToYesNoPipe } from './user/bool-to-yes-no.pipe';
+import { VendorPoComponent } from './vendor/vendor-po/vendor-po.component';
 
 @NgModule({
   declarations: [
@@ -79,7 +80,8 @@ import { BoolToYesNoPipe } from './user/bool-to-yes-no.pipe';
     PasswordRecoverEmailComponent,
     PasswordRecoverPhoneComponent,
     ResetPasswordComponent,
-    BoolToYesNoPipe
+    BoolToYesNoPipe,
+    VendorPoComponent
   ],
   imports: [
     BrowserModule,
