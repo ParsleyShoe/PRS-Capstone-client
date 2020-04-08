@@ -7,9 +7,9 @@
         <table class="table">
             <thead>
                 <th *ngIf="syssvc.loggedInUser.isAdmin" (click)="sort('id')">Id</th>
-                <th (click)="sort('description')">Description</th>
-                <th (click)="sort('justification')">Justification</th>
-                <th (click)="sort('deliveryMode')">Delivery Mode</th>
+                <th (click)="sort('description')" style="max-width: 20em;">Description</th>
+                <th (click)="sort('justification')" style="max-width: 20em;">Justification</th>
+                <th (click)="sort('deliveryMode')" style="min-width: 150px;">Delivery Mode</th>
                 <th (click)="sort('status')">Status</th>
                 <th (click)="sort('total')">Total</th>
                 <th (click)="sort('userId')" colspan="2">User</th>
@@ -17,8 +17,8 @@
             <tbody>
                 <tr *ngFor="let r of requests | requestSearch:searchCriteria | sort:sortBy:asc">
                     <td *ngIf="syssvc.loggedInUser.isAdmin">{{r.id}}</td>
-                    <td title="{{r.description}}">{{r.description}}</td>
-                    <td title="{{r.justification}}" style="width: 33%;">{{r.justification}}</td>
+                    <td title="{{r.description}}" style="max-width: 20em;">{{r.description}}</td>
+                    <td title="{{r.justification}}" style="max-width: 20em;">{{r.justification}}</td>
                     <td>{{r.deliveryMode}}</td>
                     <td *ngIf="r.status != 'REJECTED' && r.status != 'APPROVED'">{{r.status}}</td>
                     <td *ngIf="r.status != 'REJECTED' && r.status == 'APPROVED'" style="color: green;">{{r.status}}</td>

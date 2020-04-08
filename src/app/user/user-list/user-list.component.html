@@ -11,17 +11,17 @@
                 <th class="sticky-top" *ngIf="syssvc.loggedInUser.isAdmin"  (click)="sort('username')">Username</th>
                 <th class="sticky-top" (click)="sort('phone')">Phone</th>
                 <th class="sticky-top" (click)="sort('email')">Email</th>
-                <th class="sticky-top" (click)="sort('isReviewer')" colspan="2" style="text-align: center;">Reviewer</th>
+                <th class="sticky-top" (click)="sort('isReviewer')" colspan="2">Reviewer</th>
             </thead>
             <tbody>
                 <tr *ngFor="let u of users | userSearch:searchCriteria | sort:sortBy:asc">
-                    <td [ngClass]="syssvc.loggedInUser.id == u.id ? 'font-italic' : ''" *ngIf="syssvc.loggedInUser.isAdmin">{{u.id}}</td>
+                    <td *ngIf="syssvc.loggedInUser.isAdmin">{{u.id}}</td>
                     <td [ngClass]="syssvc.loggedInUser.id == u.id ? 'font-italic' : ''">{{u.firstName}} {{u.lastName}} <img *ngIf="u.isAdmin" class="admin-img" src="assets/img/shield.ico" title="admin"/></td>
                     <td [ngClass]="syssvc.loggedInUser.id == u.id ? 'font-italic' : ''" *ngIf="syssvc.loggedInUser.isAdmin" >{{u.username}}</td>
                     <td [ngClass]="syssvc.loggedInUser.id == u.id ? 'font-italic' : ''">{{u.phone}}</td>
                     <td [ngClass]="syssvc.loggedInUser.id == u.id ? 'font-italic' : ''">{{u.email}}</td>
-                    <td [ngClass]="syssvc.loggedInUser.id == u.id ? 'font-italic' : ''" style="text-align: center;">{{u.isReviewer | boolToYesNo}}</td>
-                    <td [ngClass]="syssvc.loggedInUser.id == u.id ? 'font-italic' : ''" *ngIf="syssvc.loggedInUser.isAdmin || syssvc.loggedInUser.id == u.id">
+                    <td style="text-align: center;">{{u.isReviewer | boolToYesNo}}</td>
+                    <td *ngIf="syssvc.loggedInUser.isAdmin || syssvc.loggedInUser.id == u.id">
                         <span *ngIf="syssvc.loggedInUser.isAdmin"><a routerLink="/users/detail/{{u.id}}">Detail</a> | </span>
                         <a routerLink="/users/edit/{{u.id}}">Edit</a>
                     </td>

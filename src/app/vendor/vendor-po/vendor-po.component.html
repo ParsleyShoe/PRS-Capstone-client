@@ -1,28 +1,5 @@
 <div class="wrapper">
     <div class="mt-5">
-        <!-- <table class="table">
-            <thead>
-                <th>Id</th>
-                <th>Description</th>
-                <th>Justification</th>
-                <th>Delivery Mode</th>
-                <th>Status</th>
-                <th>Total</th>
-                <th>User</th>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>{{request.id}}</td>
-                    <td>{{request.description}}</td>
-                    <td>{{request.justification}}</td>
-                    <td>{{request.deliveryMode}}</td>
-                    <td *ngIf="request.status != 'REJECTED'">{{request.status}}</td>
-                    <td *ngIf="request.status == 'REJECTED'" title="{{request.rejectionReason}}" style="text-decoration: underline;">{{request.status}}</td>
-                    <td>{{request.total | currency}}</td>
-                    <td *ngIf="request.user">{{request.user.firstName}} {{request.user.lastName}}</td>
-                </tr>
-            </tbody>
-        </table> -->
         <h2 style="text-align: center;">PO for {{vendorName}}</h2>
         <table class="table mt-5">
             <thead>

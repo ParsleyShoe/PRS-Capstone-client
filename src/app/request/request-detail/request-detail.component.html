@@ -3,8 +3,8 @@
         <table class="table">
             <thead>
                 <th>Id</th>
-                <th>Description</th>
-                <th>Justification</th>
+                <th style="max-width: 20em;">Description</th>
+                <th style="max-width: 20em;">Justification</th>
                 <th>Delivery Mode</th>
                 <th>Status</th>
                 <th>Total</th>
@@ -13,8 +13,8 @@
             <tbody>
                 <tr>
                     <td>{{request.id}}</td>
-                    <td>{{request.description}}</td>
-                    <td>{{request.justification}}</td>
+                    <td style="max-width: 20em;">{{request.description}}</td>
+                    <td style="max-width: 20em;">{{request.justification}}</td>
                     <td>{{request.deliveryMode}}</td>
                     <td *ngIf="request.status != 'REJECTED' && request.status != 'APPROVED'">{{request.status}}</td>
                     <td *ngIf="request.status != 'REJECTED' && request.status == 'APPROVED'" style="color: green;">{{request.status}}</td>

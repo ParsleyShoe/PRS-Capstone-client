@@ -2,8 +2,8 @@
     <div class="mt-5">
         <table class="table">
             <thead>
-                <th>Description</th>
-                <th>Justification</th>
+                <th style="max-width: 20em;">Description</th>
+                <th style="max-width: 20em;">Justification</th>
                 <th>Delivery Mode</th>
                 <th>Status</th>
                 <th>Total</th>
@@ -11,8 +11,8 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>{{request.description}}</td>
-                    <td>{{request.justification}}</td>
+                    <td style="max-width: 20em;">{{request.description}}</td>
+                    <td style="max-width: 20em;">{{request.justification}}</td>
                     <td>{{request.deliveryMode}}</td>
                     <td *ngIf="request.status != 'REJECTED'">{{request.status}}</td>
                     <td *ngIf="request.status == 'REJECTED'" title="{{request.rejectionReason}}" style="text-decoration: underline;">{{request.status}}</td>
